@@ -10,7 +10,7 @@ class Window(QWidget):
         layout = QVBoxLayout()
 
         self.combo = QComboBox()
-        self.combo.addItems(["books", "readers", "loans", "libraries", "genres"])
+        self.combo.addItems(["books", "readers", "loans", "libraries", "genres", "librarians"])
 
         self.filter_field = QComboBox()
         self.search_field = QComboBox()
@@ -221,8 +221,9 @@ class Window(QWidget):
             "readers": "reader_id",
             "loans": "loan_id",
             "libraries": "library_id",
-            "genres": "genre_id"
-        }
+            "genres": "genre_id",
+            "librarians": "librarian_id"
+    }
 
         try:
             if table == "books":

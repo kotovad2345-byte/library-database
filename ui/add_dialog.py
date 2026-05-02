@@ -24,6 +24,7 @@ class AddDialog(QDialog):
             "phone": "Телефон",
             "name": "Название",
             "genre_name": "Жанр",
+            "position": "Должность",
 
             "reader_id": "Читатель",
             "book_id": "Книга",
@@ -45,6 +46,8 @@ class AddDialog(QDialog):
                 "address",
                 "phone"
             ],
+
+            "librarians": ["full_name", "position", "library_id"],
 
 
 
@@ -210,6 +213,17 @@ class AddDialog(QDialog):
                 data["book_id"],
                 data["loan_date"]
             ))
+
+        elif self.table == "librarians":
+            cur.execute("""
+                INSERT INTO librarians (full_name, position, library_id)
+                VALUES (%s, %s, %s)
+            """, (
+                data["full_name"],
+                data["position"],
+                data["library_id"]
+                ))
+            
 
         conn.commit()
         conn.close()
